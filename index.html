@@ -21,33 +21,42 @@
         --top-bar-size: 50px;
         --bottom-bar-size: 50px;
       }
+
       /* We need this to make sure margin and padding don't increase box size */
       html {
         box-sizing: border-box;
       }
+
       *,
       *:before,
       *:after {
         box-sizing: inherit;
       }
+
       /* Containers need to be set to 100% of height to be responsive */
       html,
       body,
       .wrapper {
         height: 100%;
       }
+
       .appbar {
         height: var(--app-bar-size);
       }
+
       .accounts {
         height: var(--accounts-size);
       }
+
       /* top-bar is the combination of appbar and accounts. It must be fixed */
       .top-bar {
         position: fixed;
         height: var(--top-bar-size);
       }
+
       .content-wrapper {
+        /* We need flex for Sections and Content to be side by side */
+        display: flex;
         /* We put padding to make space for the fixed position top and bottom parts */
         padding-top: var(--top-bar-size);
         padding-bottom: var(--bottom-bar-size);
@@ -58,10 +67,12 @@
         /* Overflow must be hidden so inner content can scroll */
         overflow: hidden;
       }
+
       /* Content must overflow-y to scroll when content gets too big  */
       .content {
         overflow-y: auto;
       }
+
       /* Position of bottom-bar must be fixed at the bottom */
       .bottom-bar {
         height: var(--bottom-bar-size);
@@ -75,24 +86,26 @@
       html {
         font-family: 'Roboto';
       }
+
       div {
         width: 100%;
         text-align: center;
       }
-      .flex {
-        display: flex;
-      }
+
       .appbar {
         background-color: white;
       }
+
       .accounts {
         background-color: #95afc0;
       }
+
       .sections {
         color: white;
         width: 75px;
         background-color: #576574;
       }
+
       .content {
         padding: 10px;
         position: relative;
@@ -100,31 +113,36 @@
         background-color: #222f3e;
         text-align: left;
       }
+
       .bottom-bar {
         color: white;
         background-color: #182c61;
       }
+
       .absolute {
         position: absolute;
         bottom: 0;
         right: 0;
       }
+
       .accounts {
         padding: 10px;
       }
+
       .sections,
       .bottom-bar {
         padding: 10px;
       }
     </style>
   </head>
+
   <body>
     <div class="wrapper">
       <div class="top-bar">
         <div class="appbar"><small>AppBar</small></div>
         <div class="accounts">Accounts</div>
       </div>
-      <div class="content-wrapper flex">
+      <div class="content-wrapper">
         <div class="sections">Sections</div>
         <div class="content">
           <h3>Content of unknown height</h3>
